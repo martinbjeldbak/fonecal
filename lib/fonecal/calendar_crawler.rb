@@ -1,6 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-
 module Fonecal
   class CalendarCrawler < Crawler
 

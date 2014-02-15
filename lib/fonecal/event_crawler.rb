@@ -1,6 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-
 module Fonecal
   class EventCrawler < Crawler
     def gp
@@ -22,13 +19,14 @@ module Fonecal
       @site.css('div#ctl00_ContentSub_Timetable1_subModuleContentDiv table').each do |tt|
         tables << parseTimeTable(tt)
       end
+
       tables
     end
 
     private
 
     def sessionData(row)
-      inf ||= {}
+      inf = {}
 
       sessData = row.css('td')
       inf[:type] = sessData[0].text.strip
@@ -37,7 +35,7 @@ module Fonecal
     end
 
     def parseTimeTable(table)
-      info ||= {}
+      info = {}
 
       rows = table.css 'tr'
 
