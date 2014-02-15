@@ -28,10 +28,34 @@ describe Fonecal::EventCrawler do
       crawler.timeTables.count.should eq 3
     end
 
-    it "should have data for the race" do
+    it "should have data about practice 1" do
+      crawler.timeTables.first[:date].should eq 'Fri 14 March 2014'
+      crawler.timeTables.first[:sessions].first[:type].should eq 'Practice 1'
+      crawler.timeTables.first[:sessions].first[:start].should eq '12:30'
+    end
+
+    it "should have data about practice 2" do
+      crawler.timeTables.first[:date].should eq 'Fri 14 March 2014'
+      crawler.timeTables.first[:sessions].last[:type].should eq 'Practice 2'
+      crawler.timeTables.first[:sessions].last[:start].should eq '16:30'
+    end
+
+    it "should have data about practice 3" do
+      crawler.timeTables[1][:date].should eq 'Sat 15 March 2014'
+      crawler.timeTables[1][:sessions].first[:type].should eq 'Practice 3'
+      crawler.timeTables[1][:sessions].first[:start].should eq '14:00'
+    end
+
+    it "should have data about qualifying" do
+      crawler.timeTables[1][:date].should eq 'Sat 15 March 2014'
+      crawler.timeTables[1][:sessions].last[:type].should eq 'Qualifying'
+      crawler.timeTables[1][:sessions].last[:start].should eq '17:00'
+    end
+
+    it "should have data about the race" do
+      crawler.timeTables.last[:date].should eq 'Sun 16 March 2014'
       crawler.timeTables.last[:sessions].first[:type].should eq 'Race'
       crawler.timeTables.last[:sessions].first[:start].should eq '17:00'
-      crawler.timeTables.last[:date].should eq 'Sun 16 March 2014'
     end
   end
 end

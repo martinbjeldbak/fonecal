@@ -45,7 +45,7 @@ module Fonecal
       info[:date] = rows[0].text.strip
 
       # Now extract info from each of the remaining rows
-      # Practice 1 12:30 - 14:00
+      # Example: Practice 1 12:30 - 14:00 is stored in a row
       info[:sessions] ||= []
       rows[1..-1].each do |row|
         info[:sessions] << sessionData(row)
