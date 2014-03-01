@@ -11,6 +11,10 @@ module Fonecal
         ci[row.css('td')[0].content.strip] = row.css('td')[1].content.strip
       end
 
+      city = @site.css('h3.inDetailCircuitName').text
+
+      ci['City:'] = city
+
       return ci
     end
 

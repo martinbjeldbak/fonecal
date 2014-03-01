@@ -16,6 +16,10 @@ describe Fonecal::EventCrawler do
       it "fetches a date" do
         crawler.circuitInfo['Race Date:'].should_not be_nil
       end
+
+      it "fetches a city" do
+        crawler.circuitInfo['City:'].should eq 'Melbourne'
+      end
     end
 
     describe "#gp" do
