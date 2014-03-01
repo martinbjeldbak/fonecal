@@ -3,11 +3,11 @@ require 'nokogiri'
 
 module Fonecal
   class Crawler
-    attr_reader :site
+    attr_accessor :site, :root
 
     def initialize(site)
-      @site = Nokogiri::HTML(open(site))
-      @root = Util.getRootUrl(site)
+      self.site = Nokogiri::HTML(open(site))
+      self.root = Util.getRootUrl(site)
     end
   end
 end

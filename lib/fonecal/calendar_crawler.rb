@@ -1,6 +1,5 @@
 module Fonecal
   class CalendarCrawler < Crawler
-
     def eventLinks
       eventLinks = []
 
