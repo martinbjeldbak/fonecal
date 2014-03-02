@@ -1,9 +1,15 @@
 require 'timezone'
+require 'active_support/all'
 
 module Fonecal
   class Util
     def self.getRootUrl(site)
-      return site.match('.+\.com').to_s
+      site.match('.+\.com').to_s
+    end
+
+    def self.dtToUTC(dt)
+      #dt.with_offset(0).strftime("%Y%m%dT%H%M%S")
+      dt.utc.strftime("%Y%m%dT%H%M%S")
     end
   end
 

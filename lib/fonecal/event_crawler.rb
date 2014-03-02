@@ -35,6 +35,7 @@ module Fonecal
       sessData = row.css('td')
       inf[:type] = sessData[0].text.strip
       inf[:start] = sessData[1].css('span')[0].text.strip
+      inf[:end] = sessData[1].css('span')[1].text.strip if sessData[1].css('span')[1]
       inf
     end
 

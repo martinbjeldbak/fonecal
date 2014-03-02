@@ -5,7 +5,11 @@ module Fonecal
     end
 
     def name
-      @info['Circuit Name:'].cap
+      if @info['Circuit Name:']
+        @info['Circuit Name:'].cap 
+      else
+        ""
+      end
     end
 
     def city

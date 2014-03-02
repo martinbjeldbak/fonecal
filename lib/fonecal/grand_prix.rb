@@ -3,26 +3,41 @@ require 'timezone'
 
 module Fonecal
   class GrandPrix
-    attr_accessor :events, :circuitInfo
+    attr_accessor :events, :circuit
 
     def initialize(eventWebsite)
       @crawler = EventCrawler.new(eventWebsite)
-      self.circuitInfo = CircuitInfo.new(@crawler.circuitInfo)
+      self.circuit= CircuitInfo.new(@crawler.circuitInfo)
       self.events = []
 
       createEvents
     end
 
     def location
-      Geocoder.search("#{@circuitInfo.city}").first
+      if @res ||= Geocoder.search("#{@circuit.name}, #{@circuit.city}").first
+        @res
+      elsif @res ||= Geocoder.search("#{@circuit.city}").first
+        @res
+      elsif res ||= Geocoder.search("#{@circuit.name}").first
+        @res
+      else
+        @res
+      end
+
+      #@location ||= Geocoder.search("#{@circuit.name}, #{@circuit.city}").first
+    end
+
+    def city
+      @circuit.city
     end
 
     def country
+      puts location.inspect
       location.country
     end
 
     def timezone
-      Timezone::Zone.new :latlon => location.geometry["location"].values
+      @timezone ||= Timezone::Zone.new :latlon => location.geometry["location"].values
     end
 
     def raceTitle 
@@ -33,15 +48,12 @@ module Fonecal
       # Belgian Grand Prix
     end
 
-    def to_ical
-    end
-
     private
 
     def createEvents
       @crawler.timeTables.each do |day|
         day[:sessions].each do |event|
-          type = event[:type]
+        type = event[:type]
           event[:date] = day[:date]
 
           if(type.include? "Practice")
