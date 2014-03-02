@@ -5,6 +5,5 @@ describe Fonecal do
     it "creates the file" do
       Fonecal.create_ical
     end
-    
   end
 end

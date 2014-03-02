@@ -32,7 +32,6 @@ module Fonecal
     end
 
     def country
-      puts location.inspect
       location.country
     end
 
@@ -45,6 +44,7 @@ module Fonecal
     end
 
     def grandPrix
+      "#{country} GP"
       # Belgian Grand Prix
     end
 
