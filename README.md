@@ -1,6 +1,6 @@
 # Fonecal
 
-TODO: Write a gem description
+f1cal parses [formula1.com](http://www.formula1.com/) for each Grand Prix and outputs an iCalendar file with every qualifying, practice, and race session for this year's 2014 Formula One season. All event times are converted to UTC time, allowing most  calendar applications to convert the event time to the user's current timezone.
 
 ## Installation
 
@@ -14,11 +14,15 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install fonecal
+   	$ gem install fonecal
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply call
+
+		$ Fonecal.create_ical
+
+To create an iCalendar file in the current directory, readable by your favorite text editor. It is then ready to be imported in a calendar application.
 
 ## Contributing
 
