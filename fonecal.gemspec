@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Fonecal::VERSION
   spec.authors       = ["Martin Madsen"]
   spec.email         = ["martin2madsen@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{f1cal generates an iCalendar file for the 2014 Formula 1 season.}
+  spec.summary       = %q{Crawls the Grand Prix list at formula1.com and builds an iCalendar file with events in UTC}
+  spec.homepage      = "https://github.com/Fapper/f1cal"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
