@@ -1,8 +1,6 @@
-require 'fonecal'
-
-describe Fonecal do
-  describe "#create_ical" do
-    it "creates the file" do
+module Fonecal
+  describe Fonecal::Fonecal do
+    it "creates an icalendar file" do
       Fonecal.create_ical
     end
   end

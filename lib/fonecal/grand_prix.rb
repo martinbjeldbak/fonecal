@@ -23,8 +23,6 @@ module Fonecal
       else
         @res
       end
-
-      #@location ||= Geocoder.search("#{@circuit.name}, #{@circuit.city}").first
     end
 
     def city
@@ -40,7 +38,11 @@ module Fonecal
     end
 
     def raceTitle 
-      @crawler.gp.gsub(/\w+/).map(&:capitalize).join(' ')
+      title = @crawler.gp.split(/(\W)/).map(&:capitalize).join
+
+      # Dirty decapitalization hack
+      title = title.gsub(/Í/, 'í')
+      title = title.gsub(/J/, 'j')
     end
 
     def grandPrix
@@ -53,14 +55,14 @@ module Fonecal
     def createEvents
       @crawler.timeTables.each do |day|
         day[:sessions].each do |event|
-        type = event[:type]
+          type = event[:type]
           event[:date] = day[:date]
 
-          if(type.include? "Practice")
+          if ['practice 1', 'practice 2', 'practice 3'].include?(type.downcase)
             @events << Practice.new(event, timezone)
-          elsif(type.include? "Qualifying")
+          elsif type == "Qualifying"
             @events << Qualifying.new(event, timezone)
-          elsif(type.include? "Race")
+          elsif type == "Race"
             @events << Race.new(event, timezone)
           end
         end
