@@ -2,7 +2,7 @@
 
 Fonecal parses [formula1.com](http://www.formula1.com/) for each Grand Prix and outputs an iCalendar file with every qualifying, practice, and race session for this year's 2014 Formula One season. All event times are converted to UTC time, allowing calendars to convert the event time to the user's current timezone.
 
-The latest version of the calendar is hosted here: [martinbmadsen.dk/files/f1cal.ical](http://martinbmadsen.dk/files/f1cal.ical), and can be subscribed to in most calendar applications.
+The latest version of the calendar is hosted here: [martinbmadsen.dk/files/f1cal.ics](http://martinbmadsen.dk/files/f1cal.ics), and can be subscribed to in most calendar applications.
 
 Note: Most users do not need to read past this point.
 
@@ -22,11 +22,18 @@ Or install it yourself as:
 
 ## Usage
 
-Simply call
+Simply ``require 'fonecal'`` and call
 
 		$ Fonecal.create_ical
 
 To create an iCalendar file in the current directory, readable by your favorite text editor. It is then ready to be imported in a calendar application.
+
+## TODO
+A list of stuff I (might) eventually do.
+
+- [ ] fix tests
+- [ ] create a better CLI exposing more features
+- [ ] add documentation
 
 ## Contributing
 
