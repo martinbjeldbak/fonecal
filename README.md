@@ -2,7 +2,7 @@
 
 Fonecal parses [formula1.com](http://www.formula1.com/) for each Grand Prix and outputs an iCalendar file with every qualifying, practice, and race session for this year's 2014 Formula One season. All event times are converted to UTC time, allowing calendars to convert the event time to the user's current timezone.
 
-The latest version of the calendar is hosted here: [martinbmadsen.dk/files/f1cal.ics](http://martinbmadsen.dk/files/f1cal.ics), and can be subscribed to in most calendar applications.
+The latest version of the calendar is hosted here: [martinbmadsen.dk/files/fonecal.ics](http://martinbmadsen.dk/files/fonecal.ics), and can be subscribed to in most calendar applications.
 
 Note: Most users do not need to read past this point.
 
