@@ -3,7 +3,7 @@ module Fonecal
     attr_accessor :calendar
 
     def initialize(gps)
-      self.calendar = File.new('f1cal.ical', 'w')
+      @calendar = File.new('fonecal.ics', 'w')
 
       @calendar.puts "BEGIN:VCALENDAR"
       @calendar.puts "VERSION:2.0"
@@ -27,7 +27,7 @@ module Fonecal
 
       @calendar.puts "SUMMARY:#{gp.grandPrix}: #{event.name}"
       @calendar.puts "DESCRIPTION:#{gp.raceTitle}: #{event.name}"
-      @calendar.puts "DTSTAMP:#{Util.dtToUTC(DateTime.now)}Z"
+      @calendar.puts "DTSTAMP:#{Util.dtToUTC(Time.now)}Z"
       @calendar.puts "LOCATION:#{gp.city}, #{gp.country}"
       @calendar.puts "DTSTART:#{Util.dtToUTC(event.start)}Z"
       puts "#{gp.grandPrix}: #{event.name} starts #{event.start} UTC: #{event.start.utc}"
